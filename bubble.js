@@ -1,6 +1,7 @@
 
 let inputNumbers = document.getElementById("userInput");
 const checkButton = document.getElementById("checkNumbers")
+const boxNumbers = document.getElementById("number-container")
 
 let userArray = null;
 
@@ -9,6 +10,8 @@ checkButton.addEventListener("click", function(){
     let result = sortArray(userArray, arraySortedYesNo);
     window.alert(result);
 })
+
+//Bubble sort algorithm functions
 
 function arraySortedYesNo(uncertain){
     for (before = 0; before < uncertain.length; before++){
@@ -34,4 +37,14 @@ function sortArray(array, checker){
     return array
 }
 
-//console.log(sortArray([11,4,5,8,7,1,6,2,3], arraySortedYesNo))
+//Graphic part functions
+
+
+inputNumbers.addEventListener("keyup", function(){
+    console.log(inputNumbers.value.split('')[inputNumbers.value.length-1])
+    let littleBox = document.createElement("div");
+    littleBox.innerText = inputNumbers.value.split('')[inputNumbers.value.length-1]
+    littleBox.classList.add("number-boxes");
+    boxNumbers.appendChild(littleBox);
+    
+});

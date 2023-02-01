@@ -1,0 +1,23 @@
+#userInput {
+    width: 30%;
+    min-height: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 1.3em;
+    margin-bottom: 100px;
+}
+
+.number-boxes {
+    width: 30px;
+    height: 95%;
+    border: 1px solid blue;
+    padding: 1%;
+    display: inline-block;
+}
+
+#number-container {
+    width: 50%;
+    min-height: 40px;
+    border: 2px solid green;
+    border-radius: 10px;
+}
