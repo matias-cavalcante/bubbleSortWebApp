@@ -1,23 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(79, 79, 175);
+}
+
 #userInput {
-    width: 30%;
-    min-height: 40px;
+    width: auto;
+    height: 40px;
     border: 2px solid black;
     border-radius: 10px;
     font-size: 1.3em;
     margin-bottom: 100px;
+    letter-spacing: 5px;
+    text-align: center;
+    align-self: center;
 }
 
 .number-boxes {
-    width: 30px;
-    height: 95%;
-    border: 1px solid blue;
+    min-width: 12px;
+    height: 30;
     padding: 1%;
     display: inline-block;
 }
 
+.number-boxes-pointer {
+    background-color: orange;
+}
+
+#checkNumbers {
+    width: 10%;
+    height: 30px;
+    align-self: center;
+}
+
 #number-container {
-    width: 50%;
-    min-height: 40px;
+    min-width: 15%;
+    min-height: 31px;
+    background-color: aliceblue;
     border: 2px solid green;
     border-radius: 10px;
+    align-self: center;
+}
+
+#userInput,
+#number-container {
+    margin-top: 10%;
 }
