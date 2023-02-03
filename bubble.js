@@ -6,6 +6,7 @@ const boxNumbers = document.getElementById("number-container")
 let boxesReference = []
 
 
+
 inputNumbers.addEventListener("keyup", function(){
     let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1]
     let littleBox = document.createElement("div");
@@ -13,8 +14,6 @@ inputNumbers.addEventListener("keyup", function(){
     littleBox.innerText = lastInput;
     boxNumbers.appendChild(littleBox);
     boxesReference.push(littleBox);
-    //boxNumbers.children[4].innerText = "BOBO";
-    //console.log("Lets see ", boxNumbers.children[4])
 });
 
 
@@ -25,14 +24,23 @@ checkButton.addEventListener("click", function(){
     let result = sortArray(userArray, arraySortedYesNo, boxNumbers, reviewInside);
 })
 
+
 function reviewInside(objectBox, w){
-    //console.log ("-just test ", typeof objectBox.children[w].innerText)
-    //objectBox.children[w].innerText = "BEBS"
     let bridge = objectBox.children[w].innerText;
     objectBox.children[w].innerText = objectBox.children[w+1].innerText
+    objectBox.children[w].classList.add("light-blue-paint")
+
     objectBox.children[w+1].innerText = bridge
+    objectBox.children[w+1].classList.add("orange-paint")
+    
+
+    /*setTimeout(()=>{
+        objectBox.children[w+1].classList.add("unpaint")
+    }, 1000)*/
 
 }
+
+
 
 
 //Bubble sort algorithm functions
@@ -47,20 +55,26 @@ function arraySortedYesNo(uncertain){
 }
 
 function sortArray(array, checker, boxes, printer){
+    let plusTime = 0;
     while(checker(array) === false){
         let pointer = 0;
         for(let num = 0; num < array.length; num++){
             for (let point = pointer; array[point] > array[point + 1]; point++){
+                
                 let bridgeValue = array[point]
                 array[point] = array[point + 1]
                 array[point + 1] = bridgeValue
-                printer(boxes, point)
+                setTimeout(()=>{
+                    printer(boxes, point)
+                }, 500 * plusTime)
+                plusTime++;
             }
             pointer++
         }
     }
     return array
 }
+
 
 //Graphic part functions
 

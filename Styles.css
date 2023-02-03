@@ -1,9 +1,44 @@
 body {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    background-color: rgb(79, 79, 175);
+    background-color: black;
 }
+
+
+#page-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/*Top half section styles*/
+#intro-and-input,
+#results-block {
+    grid-column: span 4;
+}
+
+#intro-and-input {
+    display: flex;
+    background-color: rgb(16, 15, 15);
+    color: white;
+}
+
+
+#text {
+    width: 50%;
+    text-align: justify;
+}
+
+#text p {
+    width: 80%;
+}
+
+#input-text-and-box {
+    position: relative;
+    top: 25%;
+    left: 12.5%;
+    text-align: center;
+}
+
 
 #userInput {
     width: auto;
@@ -11,7 +46,6 @@ body {
     border: 2px solid black;
     border-radius: 10px;
     font-size: 1.3em;
-    margin-bottom: 100px;
     letter-spacing: 5px;
     text-align: center;
     align-self: center;
@@ -24,10 +58,20 @@ body {
     display: inline-block;
 }
 
-.number-boxes-pointer {
+.orange-paint {
     background-color: orange;
 }
 
+.light-blue-paint {
+    background-color: rgb(159, 225, 241);
+}
+
+.unpaint {
+    background-color: white;
+}
+
+
+/*Bottom half section styles*/
 #checkNumbers {
     width: 10%;
     height: 30px;
@@ -35,12 +79,13 @@ body {
 }
 
 #number-container {
-    min-width: 15%;
-    min-height: 31px;
+    position: relative;
+    left: 66%;
+    width: auto;
+    max-width: 20%;
+    min-height: 30px;
     background-color: aliceblue;
-    border: 2px solid green;
     border-radius: 10px;
-    align-self: center;
 }
 
 #userInput,

@@ -11,12 +11,34 @@
 </head>
 
 <body>
-    <input type="number" id="userInput">
+    <section id="page-wrap">
 
-    <button id="checkNumbers">Results</button>
+        <div id="intro-and-input">
+            <div id="text">
+                <h1>Bubble sort array algorithm</h1>
+                <p>This algorithm handles an unordered list of numbers and sorts it
+                    by comparing the number being pointed to the one at the right, and
+                    switching them if that one is bigger.
+                    The process is repeated until the whole list is sorted.
+                </p>
+                <p>Please type some numbers and pres result when ready</p>
+            </div>
+
+            <div id="input-text-and-box">
+                <input type="number" id="userInput">
+                <p>Type some numbers</p>
+            </div>
+        </div>
 
 
-    <div id="number-container"></div>
+
+        <div id="results-block">
+            <div id="number-container"></div>
+            <button id="checkNumbers">Results</button>
+        </div>
+    </section>
+
+
     <script type="text/javascript" src="bubble.js"></script>
 
 
