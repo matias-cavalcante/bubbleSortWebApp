@@ -153,6 +153,7 @@ body {
 
 @media screen and (max-width: 834px) {
     #page-wrap {
+        grid-template-columns: repeat(4, 1fr);
         width: 100%;
         left: 0%;
     }
@@ -170,5 +171,15 @@ body {
     #checkNumbers {
         width: 60%;
         height: 50px;
+    }
+}
+
+@media screen and (max-width: 695px) {
+    #input-text-and-box {
+        display: block;
+    }
+
+    #input-text-and-box p {
+        font-size: 1rem;
     }
 }
