@@ -58,7 +58,7 @@ function sortArray(array, checker, boxes, printer){
                 array[point + 1] = bridgeValue
                 setTimeout(()=>{
                     printer(boxes, point)
-                }, 1000 * plusTime)
+                }, 900 * plusTime)
                 plusTime++;
             }
             pointer++

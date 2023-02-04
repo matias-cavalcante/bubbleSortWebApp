@@ -1,32 +1,32 @@
 body {
     background-color: rgb(12, 12, 12);
     margin: 0px;
+    color: antiquewhite;
 }
 
 #page-wrap {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     position: relative;
     left: 12.5%;
     top: 10px;
     width: 75%;
     height: 90vh;
-    background-image: linear-gradient(94.3deg, rgba(26, 33, 64, 1) 10.9%, rgba(81, 84, 115, 1) 87.1%);
+    background-color: black;
     border-radius: 10px;
     padding: 20px;
 }
 
 #intro-and-input {
-    grid-column: span 2;
+    grid-column: span 3;
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     text-align: center;
 }
 
 #text {
-    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     border-radius: 15px;
 
@@ -37,13 +37,13 @@ body {
 #input-text-and-box {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
-    color: rgba(26, 33, 64, 1);
     opacity: 1;
     margin: 0px;
 }
 
 #text h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
+    color: rgb(21, 155, 104);
 }
 
 #text p {
@@ -52,7 +52,6 @@ body {
 }
 
 #input-text-and-box {
-    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     display: flex;
     justify-content: space-around;
@@ -65,49 +64,56 @@ body {
 }
 
 #userInput {
-    border: 0px;
+    border: solid 2px rgb(21, 155, 104);
+    background-color: black;
+    color: antiquewhite;
+    letter-spacing: 5px;
+    text-align: center;
     border-radius: 10px;
-    background-image: linear-gradient(94.3deg, rgba(26, 33, 64, 1) 10.9%, rgba(81, 84, 115, 1) 87.1%);
-    color: aliceblue;
     max-height: 50px;
     min-height: 30px;
     font-size: 1rem;
 }
 
+#userInput:focus,
+#userInput:active {
+    outline: none;
+}
+
+
 #input-text-and-box p {
     font-size: 1.3rem;
     font-weight: 500;
     opacity: 1;
+    color: rgb(21, 155, 104);
 }
 
 /*Results*/
 
 #results-block {
-    min-height: 50px;
+    height: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     border-radius: 15px;
-    color: aliceblue;
     font-size: 1rem;
     grid-column: span 2;
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
 
     grid-row-start: 4;
 }
 
 #checkNumbers {
+    background-color: black;
+    color: antiquewhite;
     width: 40%;
     height: 30px;
     align-self: center;
     margin-top: 10px;
-    background-image: linear-gradient(94.3deg, rgba(26, 33, 64, 1) 10.9%, rgba(81, 84, 115, 1) 87.1%);
-    border: 0px;
+    border: 2px solid rgb(21, 155, 104);
     border-radius: 10px;
-    color: aliceblue;
     font-size: 1.1rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -115,7 +121,7 @@ body {
 #checkNumbers:hover {
     cursor: pointer;
     height: 35px;
-    background-color: rgb(60, 45, 155);
+    background-color: rgb(21, 155, 104);
     transition: 1s;
 }
 
@@ -126,21 +132,23 @@ body {
 #number-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .number-boxes {
+    border: 2px solid rgb(21, 155, 104);
+    margin-right: 5px;
     min-width: 15px;
     height: 20px;
     padding: 2%;
     font-family: Arial, Helvetica, sans-serif;
     display: inline;
     border-radius: 5px;
-    color: rgb(6, 6, 19);
 }
 
 .orange-paint {
-    background-color: rgb(125, 135, 174);
-    transition: 0.5s;
+    background-color: rgb(21, 155, 104);
+    transition: 0.6s;
 }
 
 @media screen and (max-width: 834px) {
