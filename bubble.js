@@ -28,20 +28,13 @@ checkButton.addEventListener("click", function(){
 function reviewInside(objectBox, w){
     let bridge = objectBox.children[w].innerText;
     objectBox.children[w].innerText = objectBox.children[w+1].innerText
-    objectBox.children[w].classList.add("light-blue-paint")
-
     objectBox.children[w+1].innerText = bridge
-    objectBox.children[w+1].classList.add("orange-paint")
-    
 
-    /*setTimeout(()=>{
-        objectBox.children[w+1].classList.add("unpaint")
-    }, 1000)*/
-
+    objectBox.children[w+1].classList.add("orange-paint");
+    setTimeout(()=>{
+        objectBox.children[w+1].classList.remove("orange-paint");
+    }, 1000)
 }
-
-
-
 
 //Bubble sort algorithm functions
 
@@ -60,13 +53,12 @@ function sortArray(array, checker, boxes, printer){
         let pointer = 0;
         for(let num = 0; num < array.length; num++){
             for (let point = pointer; array[point] > array[point + 1]; point++){
-                
                 let bridgeValue = array[point]
                 array[point] = array[point + 1]
                 array[point + 1] = bridgeValue
                 setTimeout(()=>{
                     printer(boxes, point)
-                }, 500 * plusTime)
+                }, 1000 * plusTime)
                 plusTime++;
             }
             pointer++
