@@ -1,5 +1,5 @@
 body {
-    background-color: aliceblue;
+    background-color: rgb(12, 12, 12);
     margin: 0px;
 }
 
@@ -130,5 +130,23 @@ body {
 }
 
 .orange-paint {
-    background-color: rgb(125, 135, 174)
+    background-color: rgb(125, 135, 174);
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 834px) {
+    #page-wrap {
+        width: 100%;
+        left: 0%;
+    }
+
+    #intro-and-input,
+    #results-block {
+        grid-column: span 4;
+    }
+
+    #checkNumbers {
+        width: 60%;
+        height: 50px;
+    }
 }
