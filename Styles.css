@@ -23,7 +23,7 @@ body {
 }
 
 #text {
-    background-image: linear-gradient(109.6deg, rgba(177, 173, 219, 1) 11.2%, rgba(245, 226, 226, 1) 91.1%);
+    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     border-radius: 15px;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 #input-text-and-box {
-    background-image: linear-gradient(109.6deg, rgba(177, 173, 219, 1) 11.2%, rgba(245, 226, 226, 1) 91.1%);
+    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     display: flex;
     justify-content: space-around;
@@ -80,7 +80,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(109.6deg, rgba(177, 173, 219, 1) 11.2%, rgba(245, 226, 226, 1) 91.1%);
+    background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     border-radius: 15px;
     color: aliceblue;
