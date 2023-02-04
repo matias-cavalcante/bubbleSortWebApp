@@ -6,12 +6,14 @@ body {
 #page-wrap {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     position: relative;
     left: 12.5%;
     top: 10px;
     width: 75%;
     height: 90vh;
     background-image: linear-gradient(94.3deg, rgba(26, 33, 64, 1) 10.9%, rgba(81, 84, 115, 1) 87.1%);
+    border-radius: 10px;
     padding: 20px;
 }
 
@@ -19,6 +21,7 @@ body {
     grid-column: span 2;
     grid-column-start: 2;
     grid-column-end: 4;
+    grid-row-start: 2;
     text-align: center;
 }
 
@@ -26,6 +29,7 @@ body {
     background-image: linear-gradient(109.6deg, rgba(96, 221, 142, 1) 11.2%, rgba(24, 138, 141, 1) 91.1%);
     opacity: 0.8;
     border-radius: 15px;
+
 }
 
 #text h1,
@@ -35,6 +39,7 @@ body {
     padding: 20px;
     color: rgba(26, 33, 64, 1);
     opacity: 1;
+    margin: 0px;
 }
 
 #text h1 {
@@ -53,8 +58,10 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
+    margin-top: 7%;
     border-radius: 10px;
     margin-bottom: 0px;
+    grid-row-start: 4;
 }
 
 #userInput {
@@ -88,6 +95,8 @@ body {
     grid-column: span 2;
     grid-column-start: 2;
     grid-column-end: 4;
+
+    grid-row-start: 4;
 }
 
 #checkNumbers {
@@ -143,6 +152,11 @@ body {
     #intro-and-input,
     #results-block {
         grid-column: span 4;
+    }
+
+    #results-block {
+        grid-row-start: 3;
+        margin-top: 7%;
     }
 
     #checkNumbers {
