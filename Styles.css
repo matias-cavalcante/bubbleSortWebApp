@@ -104,7 +104,8 @@ body {
     grid-row-start: 4;
 }
 
-#checkNumbers {
+#checkNumbers,
+#loadAgain {
     background-color: black;
     color: antiquewhite;
     width: 40%;
@@ -117,11 +118,29 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#loadAgain {
+    visibility: hidden;
+    width: auto;
+    margin-top: 0px;
+    font-size: 1rem;
+    background-color: black;
+    border: 2px solid rgb(97, 18, 116);
+
+}
+
 #checkNumbers:hover {
     cursor: pointer;
     height: 35px;
     background-color: rgb(21, 155, 104);
     transition: 1s;
+}
+
+#loadAgain:hover {
+    cursor: pointer;
+    height: 35px;
+    background-color: rgb(97, 18, 116);
+    box-shadow: 0 0 6px 1px rgb(221, 57, 233);
+    transition: 0.6s;
 }
 
 
@@ -135,23 +154,27 @@ body {
 }
 
 .number-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1.5px solid rgb(21, 155, 104);
     margin-right: 5%;
-    padding: 2%;
+    margin-bottom: 3%;
     font-family: Arial, Helvetica, sans-serif;
-    display: inline;
-    border-radius: 10px;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .orange-paint {
-    background-color: rgb(11, 99, 61);
-    box-shadow: 0 0 5px 3px rgb(21, 155, 104);
+    background-color: rgb(12, 70, 45);
+    box-shadow: 0 0 5px 3px rgb(26, 184, 123);
     transition: 0.6s;
 }
 
 #timer {
     width: auto;
-    color: rgb(21, 155, 104);
+    color: rgb(26, 184, 123);
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
@@ -162,7 +185,7 @@ body {
 #time-box {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 2%;
     padding: 10px;
 }
 
