@@ -3,7 +3,6 @@ let inputNumbers = document.getElementById("userInput");
 const checkButton = document.getElementById("checkNumbers");
 const boxNumbers = document.getElementById("number-container");
 const timerClock = document.getElementById("timer");
-const clockImg = document.getElementById("clock");
 
 let boxesReference = []
 
@@ -80,7 +79,7 @@ function updateClock(time, clock) {
     }else if (time > 10000){
         updated = timeString.substring(0,2) + ":" + timeString.substring(2,4)
     }
-    clock.innerText = updated;    
+    clock.innerText = "00:"+updated;    
 }
 
   
