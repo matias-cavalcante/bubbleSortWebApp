@@ -135,19 +135,40 @@ body {
 }
 
 .number-boxes {
-    border: 2px solid rgb(21, 155, 104);
+    border: 1.5px solid rgb(21, 155, 104);
     margin-right: 5px;
-    min-width: 15px;
-    height: 20px;
     padding: 2%;
     font-family: Arial, Helvetica, sans-serif;
     display: inline;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .orange-paint {
-    background-color: rgb(21, 155, 104);
+    background-color: rgb(11, 99, 61);
+    box-shadow: 0 0 5px 3px rgb(21, 155, 104);
     transition: 0.6s;
+}
+
+#timer {
+    width: auto;
+    color: rgb(21, 155, 104);
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+#clock {
+    visibility: visible;
+    height: 1.8rem;
+}
+
+#time-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    padding: 10px;
 }
 
 @media screen and (max-width: 834px) {
@@ -189,7 +210,13 @@ body {
         display: block;
     }
 
-    #input-text-and-box p {
+    #input-text-and-box p,
+    img {
         font-size: 1rem;
     }
+
+    #timer {
+        font-size: 1.5rem;
+    }
+
 }
