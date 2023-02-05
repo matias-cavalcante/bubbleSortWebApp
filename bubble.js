@@ -23,7 +23,7 @@ let userArray = null;
 
 checkButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);
-    let result = sortArray(userArray, arraySortedYesNo, boxNumbers, reviewInside, fillTimer, timerClock);
+    let result = sortArray(userArray, arraySortedYesNo, boxNumbers, reviewInside, updateClock, timerClock);
 })
 
 
@@ -64,43 +64,27 @@ function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj
             if (elapsedTime > maxTime) {
                 maxTime = elapsedTime;
             }
-            reloj(maxTime, elapsedTime, scr);
+            reloj(maxTime,scr);
             resolve(maxTime);
         }, 700 * plusTime)
     });
 }
 
-function fillTimer(time, newTime, display){
-    let timeStr = time.toString()
-    let newTimeStr = newTime.toString()
-    let updateTime = "0";
-
-    if (timeStr.length === 3 || timeStr.length === 4){
-        for (let dig = 0; dig < timeStr.length; dig++){
-            if (timeStr.length ===4 && timeStr[dig-1] != newTimeStr[dig-1]){
-                updateTime = updateTime + newTimeStr[dig];
-            }else{
-                updateTime = updateTime + timeStr[dig]
-            }
-        }
-        updateTime = updateTime.substring(0, 2) + ":" + updateTime.substring(2, updateTime.length-1);
-        display.innerText = updateTime;
-        display.classList.add("timer")
-    }else if(timeStr.length === 5){
-        for (let dig = 0; dig < timeStr.length; dig++){
-            if (timeStr[dig] != newTimeStr[dig]){
-                updateTime = updateTime + newTimeStr[dig];
-            }else{
-                updateTime = updateTime + timeStr[dig]
-            }
-        }
-        updateTime = updateTime.substring(1, 3) + ":" + updateTime.substring(3, updateTime.length-1);
-        display.innerText = updateTime;
-        display.classList.add("timer")
+function updateClock(time, clock) {
+    let updated = "";
+    let timeString = time.toString().padStart(4, "0");
+    if (time < 1000) {
+        updated = "00:" + timeString.substring(0,2);
+    } else if (time > 1000 && time < 10000){
+        updated = "0" + timeString.substring(0,1) + ":" + timeString.substring(1,3);
+    }else if (time > 10000){
+        updated = timeString.substring(0,2) + ":" + timeString.substring(2,4)
     }
+    clock.innerText = updated;    
 }
 
-
+  
+  
 function sortArray(array, checker, boxes, printer, watch, screen){
     let start = performance.now(), plusTime = 0, maxElapsedTime = 0, promises = [];
     while(checker(array) === false){
