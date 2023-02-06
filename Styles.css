@@ -62,6 +62,7 @@ body {
     border-radius: 10px;
     margin-bottom: 0px;
     grid-row-start: 4;
+    border: 2px solid orange;
 }
 
 #userInput {
@@ -79,6 +80,14 @@ body {
 #userInput:focus,
 #userInput:active {
     outline: none;
+}
+
+#error {
+    display: none;
+    color: rgb(148, 24, 24);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 550;
 }
 
 

@@ -1,9 +1,9 @@
-
 let inputNumbers = document.getElementById("userInput");
 const sortButton = document.getElementById("checkNumbers");
 const numbContainer = document.getElementById("number-container");
 const timerClock = document.getElementById("timer");
 const reloadPage = document.getElementById("loadAgain")
+const inputErrorMessage = document.getElementById("error")
 
 reloadPage.addEventListener("click", function() {
     setTimeout(function(){
@@ -11,13 +11,20 @@ reloadPage.addEventListener("click", function() {
     }, 500);
 });
 
-inputNumbers.addEventListener("keyup", function(){
-    let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1]
-    let littleBox = document.createElement("div");
-    littleBox.classList.add("number-boxes");
-    littleBox.innerText = lastInput;
-    numbContainer.appendChild(littleBox);
+inputNumbers.addEventListener("keyup", function(event){
+    if (isNaN(parseInt(event.key))) {
+        event.preventDefault();
+        inputErrorMessage.style.display = "block";
+      }else{
+        inputErrorMessage.style.display = "none";
+        let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1]
+        let littleBox = document.createElement("div");
+        littleBox.classList.add("number-boxes");
+        littleBox.innerText = lastInput;
+        numbContainer.appendChild(littleBox);
+      }
 });
+
 
 let userArray = null;
 
@@ -66,24 +73,6 @@ function switchIndex(ind, elements){
     elements[ind+1] = bridge
 }
 
-/*
-function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj, scr) {
-    return new Promise((resolve) => {
-        setTimeout(()=>{
-            print(boxes, point)
-            let end = performance.now();
-            let elapsedTime = end - start;
-            if (elapsedTime > maxTime) {
-                maxTime = elapsedTime;
-            }
-            reloj(maxTime,scr);
-            resolve(maxTime);
-        }, 1000 * plusTime)
-    });
-}*/
-
-
-//function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj, scr)
 function printerWithTimeout( boxes, methods, point, plusTime, start, maxTime, scr) {
     return new Promise((resolve) => {
         setTimeout(()=>{
@@ -162,9 +151,6 @@ function updateClock(time, clock) {
   }
   
 //Main function organizing the array and controlling the display of the array while changing
-
-//objectsNeed, checker, boxPainter, watch)
-
 
 function sortArray(objectsNeed, methodsBox){
     let start = performance.now(), plusTime = 0, maxElapsedTime = 0, promises = [];
