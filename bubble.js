@@ -21,13 +21,24 @@ inputNumbers.addEventListener("keyup", function(){
 
 let userArray = null;
 
+let sortArrayObjects = [
+    numbContainer, timerClock, reloadPage
+]
+
+let sortArrayMethods = [arraySortedYesNo, paintBoxes, updateClock]
+
 sortButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);
-    sortArray(userArray, arraySortedYesNo, numbContainer, reviewInside, updateClock, timerClock, reloadPage);
+    sortArrayObjects.push(userArray)
+    sortArray(sortArrayObjects, sortArrayMethods);
+
+    sortButton.classList.add("fadeOut");
+    setTimeout(function() {
+    sortButton.style.display = "none";
+  }, 1000);
 })
 
-
-function reviewInside(objectBox, w){
+function paintBoxes(objectBox, w){
     let bridge = objectBox.children[w].innerText;
     objectBox.children[w].innerText = objectBox.children[w+1].innerText
     objectBox.children[w+1].innerText = bridge
@@ -55,6 +66,7 @@ function switchIndex(ind, elements){
     elements[ind+1] = bridge
 }
 
+/*
 function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj, scr) {
     return new Promise((resolve) => {
         setTimeout(()=>{
@@ -65,6 +77,23 @@ function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj
                 maxTime = elapsedTime;
             }
             reloj(maxTime,scr);
+            resolve(maxTime);
+        }, 1000 * plusTime)
+    });
+}*/
+
+
+//function printerWithTimeout(boxes, print, point, plusTime, start, maxTime, reloj, scr)
+function printerWithTimeout( boxes, methods, point, plusTime, start, maxTime, scr) {
+    return new Promise((resolve) => {
+        setTimeout(()=>{
+            methods[1](boxes, point)
+            let end = performance.now();
+            let elapsedTime = end - start;
+            if (elapsedTime > maxTime) {
+                maxTime = elapsedTime;
+            }
+            methods[2](maxTime,scr);
             resolve(maxTime);
         }, 1000 * plusTime)
     });
@@ -88,7 +117,7 @@ function paintSecondCase(counter, clockBox, timeStr){
         counter++;
         if (counter >= 101) {
             clearInterval(intervalId);
-            updated = "0" + timeStr.substring(0,1) + ":" + "00";
+            updated = "0" + (parseInt(timeStr.substring(0,1)) + 1).toString() + ":" + "00";
             clockBox.innerText = updated;
             return;
         }else{
@@ -103,7 +132,7 @@ function paintThirdCase(counter, clockBox, timeStr){
         counter++;
         if (counter >= 101) {
             clearInterval(intervalId);
-            updated = timeStr.substring(0,2) + ":" + "00";
+            updated = (parseInt(timeStr.substring(0,2)) + 1).toString() + ":" + "00";
             clockBox.innerText = updated;
             return;
         }else{
@@ -125,28 +154,33 @@ function updateClock(time, clock) {
         paintThirdCase(countTo99, clock, timeString)
     }
 }
-
+  function pushPromise(promises, boxes, methodsBox, point, plusTime, start, maxElapsedTime, screen) {
+    promises.push(printerWithTimeout(boxes, point, plusTime, start, maxElapsedTime, screen)
+      .then((newMaxTime) => {
+        maxElapsedTime = newMaxTime;
+      }));
+  }
+  
 //Main function organizing the array and controlling the display of the array while changing
-function sortArray(array, checker, boxes, printer, watch, screen, rest){
+
+//objectsNeed, checker, boxPainter, watch)
+
+
+function sortArray(objectsNeed, methodsBox){
     let start = performance.now(), plusTime = 0, maxElapsedTime = 0, promises = [];
-    while(checker(array) === false){
+    while(methodsBox[0](objectsNeed[objectsNeed.length-1]) === false){
+        let array = objectsNeed[objectsNeed.length-1]
         let pointer = 0;
         for(let num = 0; num < array.length; num++){
             for (let point = pointer; array[point] > array[point + 1]; point++){
                 switchIndex(point, array)
-                printerWithTimeout(boxes, point, plusTime, start, maxElapsedTime, watch, screen)
+                printerWithTimeout(objectsNeed[0], methodsBox, point, plusTime, start, maxElapsedTime, objectsNeed[1])
                 plusTime++;
-                promises.push(printerWithTimeout(boxes,printer, point, plusTime, start, maxElapsedTime, watch,screen)
-                .then((newMaxTime) => {
-                    maxElapsedTime = newMaxTime;
-                }));
+                pushPromise(promises, objectsNeed[0], methodsBox[1], point, plusTime, start, maxElapsedTime, objectsNeed[1])
             }
             pointer++
         } 
     }
-    Promise.all(promises).then(() => {
-        rest.style.visibility = "visible";
-    });
 }
 
 

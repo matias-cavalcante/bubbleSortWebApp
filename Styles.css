@@ -121,8 +121,16 @@ body {
     letter-spacing: 3px;
 }
 
+#checkNumbers {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+#checkNumbers.fadeOut {
+    opacity: 0;
+}
+
 #loadAgain {
-    visibility: hidden;
     height: auto;
     width: auto;
     margin-top: 0px;
