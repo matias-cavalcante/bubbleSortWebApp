@@ -1,4 +1,4 @@
-import { checkHello } from './child';
+import { checkHello } from './child.js';
 
 console.log("The message is: ", checkHello())
 
