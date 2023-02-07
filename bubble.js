@@ -89,7 +89,7 @@ for (let hi = 0; hi < 10; hi++){
 //Bubble sort algorithm functions
 
 function arraySortedYesNo(uncertain){
-    for (before = 0; before < uncertain.length; before++){
+    for (let before = 0; before < uncertain.length; before++){
         if (uncertain[before] > uncertain[before+1]){
             return false
         }
