@@ -1,6 +1,8 @@
-import { checkHello } from './child.js';
+import { paintBoxes} from './graphicFunctions.js';
+import { timedPainter } from './graphicFunctions.js';
 
-console.log("The message is: ", checkHello())
+console.log("This is working with expprt-import")
+
 
 let inputNumbers = document.getElementById("userInput");
 const sortButton = document.getElementById("checkNumbers");
@@ -67,17 +69,6 @@ sortButton.addEventListener("click", function(){
   }, 1000);
 })
 
-function paintBoxes(objectBox, w){
-    let bridge = objectBox.children[w].innerText;
-    objectBox.children[w].innerText = objectBox.children[w+1].innerText
-    objectBox.children[w+1].innerText = bridge
-
-    objectBox.children[w+1].classList.add("number-boxes-painter");
-    setTimeout(()=>{
-        objectBox.children[w+1].classList.remove("number-boxes-painter");
-    }, 1000)
-}
-
 
 //Bubble sort algorithm functions
 
@@ -96,16 +87,6 @@ function switchIndex(ind, elements){
     elements[ind+1] = bridge
 }
 
-function timedPainter(numbersBox, clock, twoMethods, index, plusTime, start, maxTime) {
-        setTimeout(()=>{
-            twoMethods[1](numbersBox, index)
-            let end = performance.now() - start;
-            if (end > maxTime) {
-                maxTime = end;
-            }
-            twoMethods[2](maxTime,clock);
-        }, 1000 * plusTime)
-}
 
 //Populate clock container with seconds and milliseconds
 function paintLessOneSecond(counter, clockBox){
