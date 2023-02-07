@@ -1,3 +1,7 @@
+import { checkHello } from './child';
+
+console.log("The message is: ", checkHello())
+
 let inputNumbers = document.getElementById("userInput");
 const sortButton = document.getElementById("checkNumbers");
 const numbContainer = document.getElementById("number-container");
@@ -10,42 +14,6 @@ reloadPage.addEventListener("click", function() {
         location.reload();
     }, 500);
 });
-
-/*
-inputNumbers.addEventListener("keyup", function(event){
-    if (isNaN(parseInt(event.key))) {
-        event.preventDefault();
-        inputErrorMessage.style.display = "block";
-      }else{
-        inputErrorMessage.style.display = "none";
-        let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1]
-        let littleBox = document.createElement("div");
-        littleBox.classList.add("number-boxes");
-        littleBox.innerText = lastInput;
-        numbContainer.appendChild(littleBox);
-      }
-});*/
-
-/*
-inputNumbers.addEventListener("keyup", function(event){
-    if (event.key === 'Backspace') {
-      let boxes = document.querySelectorAll(".number-boxes");
-      if (boxes.length) {
-        numbContainer.removeChild(boxes[boxes.length-1]);
-      }
-    } else if (isNaN(parseInt(event.key))) {
-      event.preventDefault();
-      inputErrorMessage.style.display = "block";
-    } else {
-      inputErrorMessage.style.display = "none";
-      let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1];
-      let littleBox = document.createElement("div");
-      littleBox.classList.add("number-boxes");
-      littleBox.innerText = lastInput;
-      numbContainer.appendChild(littleBox);
-    }
-  });*/
-
 
   function handleInput(event) {
     if (event.key === 'Backspace') {
@@ -104,10 +72,18 @@ function paintBoxes(objectBox, w){
     objectBox.children[w].innerText = objectBox.children[w+1].innerText
     objectBox.children[w+1].innerText = bridge
 
-    objectBox.children[w+1].classList.add("orange-paint");
+    objectBox.children[w+1].classList.add("number-boxes-painter");
     setTimeout(()=>{
-        objectBox.children[w+1].classList.remove("orange-paint");
+        objectBox.children[w+1].classList.remove("number-boxes-painter");
     }, 1000)
+}
+
+
+for (let hi = 0; hi < 10; hi++){
+    setTimeout(()=>{
+        console.log("I am late")        
+    }, 1000)
+    console.log("Hello")
 }
 
 //Bubble sort algorithm functions
@@ -127,19 +103,15 @@ function switchIndex(ind, elements){
     elements[ind+1] = bridge
 }
 
-function printerWithTimeout( boxes, methods, point, plusTime, start, maxTime, scr) {
-    return new Promise((resolve) => {
+function timedPainter(numbersBox, clock, twoMethods, index, plusTime, start, maxTime) {
         setTimeout(()=>{
-            methods[1](boxes, point)
-            let end = performance.now();
-            let elapsedTime = end - start;
-            if (elapsedTime > maxTime) {
-                maxTime = elapsedTime;
+            twoMethods[1](numbersBox, index)
+            let end = performance.now() - start;
+            if (end > maxTime) {
+                maxTime = end;
             }
-            methods[2](maxTime,scr);
-            resolve(maxTime);
+            twoMethods[2](maxTime,clock);
         }, 1000 * plusTime)
-    });
 }
 
 //Populate clock container with seconds and milliseconds
@@ -187,7 +159,6 @@ function paintThirdCase(counter, clockBox, timeStr){
 
 function updateClock(time, clock) {
     let countTo99 = 0;
-    let updated = "";
     let timeString = time.toString().padStart(4, "0");
     if (time < 1000){
         paintLessOneSecond(countTo99, clock)
@@ -197,31 +168,30 @@ function updateClock(time, clock) {
         paintThirdCase(countTo99, clock, timeString)
     }
 }
-  function pushPromise(promises, boxes, methodsBox, point, plusTime, start, maxElapsedTime, screen) {
-    promises.push(printerWithTimeout(boxes, point, plusTime, start, maxElapsedTime, screen)
-      .then((newMaxTime) => {
-        maxElapsedTime = newMaxTime;
-      }));
-  }
-  
+
+
 //Main function organizing the array and controlling the display of the array while changing
 
 function sortArray(objectsNeed, methodsBox){
-    let start = performance.now(), plusTime = 0, maxElapsedTime = 0, promises = [];
+    let start = performance.now(), plusTime = 0, maxElapsedTime = 0;
     while(methodsBox[0](objectsNeed[objectsNeed.length-1]) === false){
         let array = objectsNeed[objectsNeed.length-1]
         let pointer = 0;
         for(let num = 0; num < array.length; num++){
             for (let point = pointer; array[point] > array[point + 1]; point++){
                 switchIndex(point, array)
-                printerWithTimeout(objectsNeed[0], methodsBox, point, plusTime, start, maxElapsedTime, objectsNeed[1])
+                timedPainter(objectsNeed[0], objectsNeed[1], methodsBox, point, plusTime, start, maxElapsedTime)
                 plusTime++;
-                pushPromise(promises, objectsNeed[0], methodsBox[1], point, plusTime, start, maxElapsedTime, objectsNeed[1])
             }
             pointer++
         } 
     }
 }
+
+
+
+
+  
 
 
 
