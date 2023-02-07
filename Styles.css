@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(18, 17, 17);
     color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #page-wrap {
@@ -8,15 +9,16 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     position: relative;
-    left: 12.5%;
     top: 10px;
+    left: 12.5%;
     width: 75%;
-    height: auto;
     max-height: 95vh;
     background-color: black;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 15px;
+    padding: 15px;
 }
+
+/*Section elements before the sort-button*/
 
 #intro-and-input {
     grid-column: span 3;
@@ -26,18 +28,10 @@ body {
     text-align: center;
 }
 
-#text {
-    opacity: 0.8;
-    border-radius: 15px;
-
-}
-
 #text h1,
 #text p,
 #input-text-and-box {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
-    opacity: 1;
+    padding: 15px;
     margin: 0px;
 }
 
@@ -53,34 +47,37 @@ body {
 }
 
 #input-text-and-box {
-    opacity: 0.8;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
     margin-top: 7%;
     border-radius: 10px;
-    margin-bottom: 0px;
     grid-row-start: 4;
 }
 
 #userInput {
-    border: solid 2px rgb(21, 155, 104);
-    background-color: black;
-    color: antiquewhite;
-    letter-spacing: 5px;
-    text-align: center;
-    border-radius: 50px;
     max-height: 50px;
     min-height: 30px;
+    border-radius: 50px;
+    letter-spacing: 10px;
+    text-align: center;
     font-size: 1rem;
+    background-color: black;
+    color: antiquewhite;
+    border: solid 2px rgb(21, 155, 104);
 }
 
-#userInput:focus,
-#userInput:active {
+#userInput:focus {
     outline: none;
 }
 
+#input-text-and-box p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgb(21, 155, 104);
+}
+
+/*This is an h4 tag that changes to display inline when user inputs invalid characters*/
 #error {
     display: none;
     color: rgb(148, 24, 24);
@@ -89,49 +86,31 @@ body {
     font-weight: 550;
 }
 
-
-#input-text-and-box p {
-    font-size: 1.3rem;
-    font-weight: 500;
-    opacity: 1;
-    color: rgb(21, 155, 104);
-}
-
-/*Results*/
+/*Results section - sort button and reload page buttons*/
 
 #results-block {
-    height: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    opacity: 0.8;
-    border-radius: 15px;
-    font-size: 1rem;
     grid-column: span 2;
     grid-column-start: 2;
     grid-column-end: 5;
-
     grid-row-start: 4;
 }
 
 #checkNumbers,
 #loadAgain {
-    background-color: black;
-    color: antiquewhite;
-    width: 30%;
     height: 30px;
-    align-self: center;
+    width: 30%;
     margin-top: 10px;
+    align-self: center;
     border: 2px solid rgb(21, 155, 104);
     border-radius: 50px;
     font-size: 1.1rem;
-    font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 3px;
-}
-
-#checkNumbers {
-    opacity: 1;
     transition: opacity 1s ease-out;
+    color: antiquewhite;
+    background-color: black;
 }
 
 #checkNumbers.fadeOut {
@@ -141,12 +120,9 @@ body {
 #loadAgain {
     height: auto;
     width: auto;
-    margin-top: 0px;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
     border: 0px;
 }
 
@@ -158,9 +134,10 @@ body {
 
 #checkNumbers:hover {
     cursor: pointer;
-    height: 35px;
-    background-color: rgb(21, 155, 104);
-    transition: 1s;
+    height: 34px;
+    border-width: 1.5px;
+    box-shadow: 0 0 5px 3px rgb(21, 155, 104);
+    transition: 0.8s;
 }
 
 #loadAgain img:hover {
@@ -187,7 +164,6 @@ body {
     border: 1.5px solid rgb(21, 155, 104);
     margin-right: 7px;
     margin-bottom: 3%;
-    font-family: Arial, Helvetica, sans-serif;
     border-radius: 50px;
     width: 30px;
     height: 30px;
@@ -203,7 +179,6 @@ body {
     width: auto;
     color: rgb(26, 184, 123);
     font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
     align-self: center;
     display: inline-block;
     margin-right: 0px;

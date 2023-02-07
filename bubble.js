@@ -11,6 +11,7 @@ reloadPage.addEventListener("click", function() {
     }, 500);
 });
 
+/*
 inputNumbers.addEventListener("keyup", function(event){
     if (isNaN(parseInt(event.key))) {
         event.preventDefault();
@@ -23,9 +24,62 @@ inputNumbers.addEventListener("keyup", function(event){
         littleBox.innerText = lastInput;
         numbContainer.appendChild(littleBox);
       }
-});
+});*/
+
+/*
+inputNumbers.addEventListener("keyup", function(event){
+    if (event.key === 'Backspace') {
+      let boxes = document.querySelectorAll(".number-boxes");
+      if (boxes.length) {
+        numbContainer.removeChild(boxes[boxes.length-1]);
+      }
+    } else if (isNaN(parseInt(event.key))) {
+      event.preventDefault();
+      inputErrorMessage.style.display = "block";
+    } else {
+      inputErrorMessage.style.display = "none";
+      let lastInput = inputNumbers.value.split('')[inputNumbers.value.length-1];
+      let littleBox = document.createElement("div");
+      littleBox.classList.add("number-boxes");
+      littleBox.innerText = lastInput;
+      numbContainer.appendChild(littleBox);
+    }
+  });*/
 
 
+  function handleInput(event) {
+    if (event.key === 'Backspace') {
+      removeLastBox();
+    } else if (isNaN(parseInt(event.key))) {
+      preventDefaultAndShowError();
+    } else {
+      hideErrorAndAddBox(event.key);
+    }
+  }
+  
+  function removeLastBox() {
+    let boxes = document.querySelectorAll(".number-boxes");
+    if (boxes.length) {
+      numbContainer.removeChild(boxes[boxes.length-1]);
+    }
+  }
+  
+  function preventDefaultAndShowError() {
+    event.preventDefault();
+    inputErrorMessage.style.display = "block";
+  }
+  
+  function hideErrorAndAddBox(key) {
+    inputErrorMessage.style.display = "none";
+    let lastInput = key;
+    let littleBox = document.createElement("div");
+    littleBox.classList.add("number-boxes");
+    littleBox.innerText = lastInput;
+    numbContainer.appendChild(littleBox);
+  }
+  
+  inputNumbers.addEventListener("keyup", handleInput);
+  
 let userArray = null;
 
 let sortArrayObjects = [
