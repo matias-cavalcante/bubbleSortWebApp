@@ -79,13 +79,6 @@ function paintBoxes(objectBox, w){
 }
 
 
-for (let hi = 0; hi < 10; hi++){
-    setTimeout(()=>{
-        console.log("I am late")        
-    }, 1000)
-    console.log("Hello")
-}
-
 //Bubble sort algorithm functions
 
 function arraySortedYesNo(uncertain){
@@ -122,7 +115,7 @@ function paintLessOneSecond(counter, clockBox){
             clearInterval(intervalId);
             return;
         }
-        updated = "00"  + ":" + counter.toString().padStart(2, "0");
+        let updated = "00"  + ":" + counter.toString().padStart(2, "0");
         clockBox.innerText = updated;
     }, 10);
 }
@@ -132,11 +125,11 @@ function paintSecondCase(counter, clockBox, timeStr){
         counter++;
         if (counter >= 101) {
             clearInterval(intervalId);
-            updated = "0" + (parseInt(timeStr.substring(0,1)) + 1).toString() + ":" + "00";
+            let updated = "0" + (parseInt(timeStr.substring(0,1)) + 1).toString() + ":" + "00";
             clockBox.innerText = updated;
             return;
         }else{
-            updated = "0" + timeStr.substring(0,1) + ":" + counter.toString().padStart(2, "0");
+            let updated = "0" + timeStr.substring(0,1) + ":" + counter.toString().padStart(2, "0");
             clockBox.innerText = updated;
         }  
     }, 10);
@@ -147,11 +140,11 @@ function paintThirdCase(counter, clockBox, timeStr){
         counter++;
         if (counter >= 101) {
             clearInterval(intervalId);
-            updated = (parseInt(timeStr.substring(0,2)) + 1).toString() + ":" + "00";
+            let updated = (parseInt(timeStr.substring(0,2)) + 1).toString() + ":" + "00";
             clockBox.innerText = updated;
             return;
         }else{
-            updated = timeStr.substring(0,2) + ":" + counter.toString().padStart(2, "0");
+            let updated = timeStr.substring(0,2) + ":" + counter.toString().padStart(2, "0");
             clockBox.innerText = updated;
         }
     }, 10);
