@@ -1,6 +1,6 @@
 import { paintBoxes} from './graphicFunctions.js';
 import { timedPainter } from './graphicFunctions.js';
-import {updateClock} from './clockUpdater'
+import {updateClock} from './clockUpdater.js'
 
 console.log("Clock updater added also")
 
