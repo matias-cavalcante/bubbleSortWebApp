@@ -196,12 +196,9 @@ body {
         width: 100%;
         left: 0%;
         padding: 0px;
+        overflow: auto;
     }
 
-    #intro-and-input,
-    #results-block {
-        grid-column: span 1;
-    }
 
     #text h1 {
         font-size: 1.8rem;
@@ -223,6 +220,7 @@ body {
 }
 
 @media screen and (max-width: 695px) {
+
     #input-text-and-box {
         display: block;
     }
