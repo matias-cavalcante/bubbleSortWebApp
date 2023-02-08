@@ -21,6 +21,7 @@ inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleI
 sortButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);
     sortArrayObjects.push(userArray)
+    console.log("userArray is ", userArray)
     sortArray(sortArrayObjects, sortArrayMethods);
 
     sortButton.classList.add("fadeOut");
