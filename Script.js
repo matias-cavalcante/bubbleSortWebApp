@@ -13,6 +13,8 @@ const reloadPage = document.getElementById("loadAgain")
 const inputErrorMessage = document.getElementById("error")
 
 let userArray = null;
+let sortArrayObjects = [numbContainer, timerClock, reloadPage]
+let sortArrayMethods = [arraySortedYesNo, paintBoxes, updateClock]
 
 sortButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);
@@ -33,10 +35,6 @@ reloadPage.addEventListener("click", function() {
 
 inputNumbers.addEventListener("keyup", inputErrorMessage,  handleInput);
  
-let sortArrayObjects = [numbContainer, timerClock, reloadPage]
-let sortArrayMethods = [arraySortedYesNo, paintBoxes, updateClock]
-
-
 function sortArray(objectsNeed, methodsBox){
     let start = performance.now(), plusTime = 0, maxElapsedTime = 0;
     while(methodsBox[0](objectsNeed[objectsNeed.length-1]) === false){
