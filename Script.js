@@ -16,7 +16,7 @@ let userArray = null;
 let sortArrayObjects = [numbContainer, timerClock, reloadPage]
 let sortArrayMethods = [arraySortedYesNo, paintBoxes, updateClock]
 
-inputNumbers.addEventListener("keyup", inputErrorMessage,  handleInput);
+inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleInput);
 
 sortButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);

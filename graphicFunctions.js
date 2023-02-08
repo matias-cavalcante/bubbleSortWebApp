@@ -1,6 +1,5 @@
 
 export function paintBoxes(objectBox, w){
-    console.log("Object box looks like this ", objectBox)
     let bridge = objectBox.children[w].innerText;
     objectBox.children[w].innerText = objectBox.children[w+1].innerText
     objectBox.children[w+1].innerText = bridge
@@ -12,7 +11,6 @@ export function paintBoxes(objectBox, w){
 }
 
 export function timedPainter(numbersBox, clock, twoMethods, index, plusTime, start, maxTime) {
-    console.log("Numbers box is this ", numbersBox)
     setTimeout(()=>{
         twoMethods[1](numbersBox, index)
         let end = performance.now() - start;
