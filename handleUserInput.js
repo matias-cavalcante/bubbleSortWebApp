@@ -21,7 +21,6 @@ function removeLastBox(numBox) {
   }
 
   export function handleInput(event, message, box) {
-    console.log("We are using this function")
     if (event.key === 'Backspace') {
       removeLastBox(box);
     } else if (isNaN(parseInt(event.key))) {

@@ -12,7 +12,11 @@ const timerClock = document.getElementById("timer");
 const reloadPage = document.getElementById("loadAgain")
 const inputErrorMessage = document.getElementById("error")
 
-inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleInput);
+/*inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleInput);*/
+
+inputNumbers.addEventListener("keyup", function(event) {
+    handleInput(event, inputErrorMessage, numbContainer);
+  });
 
 let userArray = null;
 let sortArrayObjects = [numbContainer, timerClock, reloadPage]
