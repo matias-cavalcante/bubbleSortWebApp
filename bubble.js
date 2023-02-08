@@ -2,7 +2,7 @@ import { paintBoxes} from './graphicFunctions.js';
 import { timedPainter } from './graphicFunctions.js';
 import {updateClock} from './clockUpdater.js'
 import {arraySortedYesNo, switchIndex} from './checkAndSwitchArrayMethods.js'
-import {handleInput} from '.handleInput.js'
+import {handleInput} from './handleInput.js'
 
 
 let inputNumbers = document.getElementById("userInput");
