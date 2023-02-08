@@ -13,6 +13,7 @@ function removeLastBox(numBox) {
   function hideErrorAndAddBox(key, message, numBox) {
     message.style.display = "none";
     let lastInput = key;
+    console.log("We are testing in here ", key.innerText)
     let littleBox = document.createElement("div");
     littleBox.classList.add("number-boxes");
     littleBox.innerText = lastInput;
