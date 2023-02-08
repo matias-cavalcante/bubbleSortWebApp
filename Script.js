@@ -12,16 +12,17 @@ const timerClock = document.getElementById("timer");
 const reloadPage = document.getElementById("loadAgain")
 const inputErrorMessage = document.getElementById("error")
 
+inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleInput);
+
 let userArray = null;
 let sortArrayObjects = [numbContainer, timerClock, reloadPage]
 let sortArrayMethods = [arraySortedYesNo, paintBoxes, updateClock]
 
-inputNumbers.addEventListener("keyup", inputErrorMessage, numbContainer, handleInput);
+
 
 sortButton.addEventListener("click", function(){
     userArray = inputNumbers.value.split('').map(Number);
     sortArrayObjects.push(userArray)
-    console.log("userArray is ", userArray)
     sortArray(sortArrayObjects, sortArrayMethods);
 
     sortButton.classList.add("fadeOut");
